@@ -51,26 +51,28 @@ The system includes:
 - Can run on laptops or Raspberry Pi  
 
 ---
+ 
+## 📦 Project Structure
 
-## 📦 Project Structure  
-
+```
 IDS-System/
 │
-├── backend.py # Flask backend + analyzer thread
-├── sniffer.py # Packet capture and interface selection
-├── flow_manager.py # Flow building + feature extraction
-├── inference.py # ML model inference + scoring
+├── backend.py            # Flask backend + analyzer thread
+├── sniffer.py            # Packet capture + interface selection
+├── flow_manager.py       # Flow building + feature extraction
+├── inference.py          # ML model inference + scoring
 │
-├── model.pkl # IsolationForest model
-├── scaler.pkl # StandardScaler object
-├── threshold.pkl # Tuned anomaly threshold
+├── model.pkl             # IsolationForest model
+├── scaler.pkl            # StandardScaler object
+├── threshold.pkl         # Tuned anomaly threshold
 │
 ├── static/
-│ ├── dashboard.js # Frontend logic
-│ └── style.css # UI styling
+│   ├── dashboard.js      # Frontend JS logic
+│   └── style.css         # Dashboard CSS
 │
 └── templates/
-└── dashboard.html # Web dashboard UI
+    └── dashboard.html    # Web dashboard UI
+```
 
 ---
 
