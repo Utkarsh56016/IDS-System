@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-time IDS Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Local style -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Real-time Network Anomaly Detection</h1>
+      <p class="subtitle">Lightweight anomaly-based IDS • demo</p>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="card status-card">
+          <div class="status-row">
+            <div>
+              <div class="status-title">System Status</div>
+              <div id="sys-status" class="status-val">Initializing</div>
+            </div>
+            <div>
+              <div class="status-title">Last Update</div>
+              <div id="last-update" class="status-val">—</div>
+            </div>
+            <div>
+              <div class="status-title">Recent Alerts</div>
+              <div id="alert-count" class="status-val">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="card-title">Score history (recent)</div>
+          <canvas id="scoreChart" height="120"></canvas>
+        </div>
+
+        <div class="card chart-card">
+          <div class="card-title">Protocol distribution &amp; packets/sec</div>
+          <div class="proto-grid">
+            <div class="proto-left">
+              <canvas id="protoChart" height="120"></canvas>
+            </div>
+            <div class="proto-right">
+              <div class="proto-subtitle">Packets/sec (last 60s)</div>
+              <canvas id="ppsChart" height="80"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card traffic-card">
+          <div class="card-title">Traffic snapshot</div>
+          <div class="traffic-grid">
+            <div class="traffic-item">
+              <div class="traffic-label">Packets/sec</div>
+              <div id="packets-sec" class="traffic-value">—</div>
+            </div>
+            <div class="traffic-item">
+              <div class="traffic-label">Anomalies/min (visible)</div>
+              <div id="anoms-min" class="traffic-value">—</div>
+            </div>
+            <div class="traffic-item">
+              <div class="traffic-label">Anomalies/min (raw)</div>
+              <div id="anoms-min-raw" class="traffic-value">—</div>
+            </div>
+            <div class="traffic-item">
+              <div class="traffic-label">Model</div>
+              <div class="traffic-value">IsolationForest</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card top-talkers-card">
+          <div class="card-title">Top Talkers (by bytes)</div>
+          <table class="top-talkers-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>IP</th>
+                <th>Packets</th>
+                <th>Bytes</th>
+                <th>Flows</th>
+              </tr>
+            </thead>
+            <tbody id="top-talkers-body">
+              <tr>
+                <td colspan="5" style="font-size:11px;color:#666">No data yet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="right">
+        <div class="card alerts-card">
+          <div class="card-title-row">
+            <div class="card-title">Anomaly Alerts</div>
+            <button id="export-csv-btn" class="export-btn">Export CSV</button>
+          </div>
+          <label>
+            <input type="checkbox" id="ignore-localhost-toggle" />
+            Ignore localhost flows
+          </label>
+          <div id="alerts" class="alerts-list">
+            <!-- alerts injected here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Retro minimal theme • BY Utkarsh Mishra • Team Mishaz </small>
+    </footer>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

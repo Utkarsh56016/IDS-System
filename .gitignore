@@ -1,0 +1,44 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Model & training artifacts
+*.joblib
+*.h5
+*.onnx
+*.tflite
+
+# Logs & runtime files
+*.log
+*.csv
+*.json
+
+# OS-specific trash
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+.idea/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Local test artifacts
+*.pcap
+*.pcapng
+
+# ZIPs
+*.zip
+*.7z
+*.tar
+*.gz

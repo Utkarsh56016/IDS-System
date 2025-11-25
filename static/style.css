@@ -1,0 +1,209 @@
+/* Minimal retro white + black look */
+:root{
+  --bg:#ffffff;
+  --text:#0b0b0b;
+  --muted:#333;
+  --card-bg:#fbfbfb;
+  --accent:#000;
+  --danger:#b00020;
+  --gap:14px;
+  --radius:8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);}
+
+.page{
+  max-width:1200px;
+  margin:18px auto;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  min-height:calc(100vh - 36px);
+}
+
+header h1{
+  margin:0;
+  font-size:22px;
+  letter-spacing:0.6px;
+}
+.subtitle{margin:6px 0 18px 0;color:var(--muted);font-size:12px}
+
+main{
+  display:flex;
+  gap:var(--gap);
+  flex:1;
+}
+
+.left{flex:1;display:flex;flex-direction:column;gap:var(--gap)}
+.right{width:420px}
+
+.card{
+  background:var(--card-bg);
+  border:1px solid #e6e6e6;
+  padding:12px;
+  border-radius:var(--radius);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+.card-title{
+  font-weight:700;
+  margin-bottom:10px;
+  font-size:13px;
+  color:var(--accent);
+}
+
+.card-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.export-btn{
+  font-size:11px;
+  padding:4px 8px;
+  border:1px solid #000;
+  background:#fff;
+  color:#000;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.export-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+.status-card .status-row{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:flex-start;
+}
+.status-title{font-size:11px;color:var(--muted)}
+.status-val{font-size:16px;font-weight:700}
+
+.alerts-list{
+  max-height:640px;
+  overflow:auto;
+  padding-right:6px;
+}
+
+.alert-row{
+  border-bottom:1px dashed #f0f0f0;
+  padding:10px 6px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.alert-left{flex:0 0 84px;font-size:12px;color:var(--muted)}
+.alert-right{flex:1;font-size:13px}
+
+.alert-score{
+  font-weight:700;
+  font-size:13px;
+}
+
+.alert-time{font-size:11px;color:var(--muted)}
+
+.alert-badge{
+  padding:6px 8px;border-radius:6px;font-size:12px;
+  background:#f4f4f4;border:1px solid #eee;
+}
+
+.alert-meta{
+  margin-top:2px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* anomaly highlighting (red) */
+.alert-anomaly{
+  background:linear-gradient(90deg, rgba(176,0,32,0.06), rgba(176,0,32,0.03));
+  border-left:4px solid var(--danger);
+  padding-left:8px;
+}
+
+/* chart card tweaks */
+.chart-card canvas{width:100% !important; height:140px !important;}
+
+#protoChart{
+  width:160px !important;
+  height:160px !important;
+  display:block;
+  margin:0 auto;
+}
+
+.proto-grid{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.proto-left{flex:0 0 auto;}
+.proto-right{flex:1;}
+.proto-subtitle{font-size:11px;color:var(--muted);margin-bottom:4px;}
+
+#ppsChart{
+  width:100% !important;
+  height:80px !important;
+}
+
+/* traffic grid */
+.traffic-grid{display:flex;gap:10px;align-items:center}
+.traffic-item{flex:1}
+.traffic-label{font-size:11px;color:var(--muted)}
+.traffic-value{font-size:18px;font-weight:700}
+
+.top-talkers-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:11px;
+}
+.top-talkers-table th,
+.top-talkers-table td{
+  border-bottom:1px solid #eee;
+  padding:4px 6px;
+  text-align:left;
+}
+.top-talkers-table th{
+  font-weight:700;
+}
+
+/* footer */
+footer{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* Severity indicator colors */
+
+.alert-low {
+  background: rgba(255, 230, 120, 0.25); /* pale yellow */
+  border-left: 4px solid #ffcc00;
+}
+
+.alert-medium {
+  background: rgba(255, 150, 50, 0.20); /* orange glow */
+  border-left: 4px solid #ff8800;
+}
+
+.alert-high {
+  background: rgba(220, 0, 0, 0.20); /* red */
+  border-left: 4px solid #cc0000;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* cool subtle pulsing for high severity */
+@keyframes pulse {
+  0%   { background-color: rgba(220,0,0,0.20); }
+  50%  { background-color: rgba(220,0,0,0.30); }
+  100% { background-color: rgba(220,0,0,0.20); }
+}
+
