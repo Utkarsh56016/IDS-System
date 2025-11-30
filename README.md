@@ -83,11 +83,19 @@ IDS-System/
 ```bash
 
 pip install -r requirements.txt
+
+ ```
 ---
 
 ### 2️⃣ Run the IDS  
 
+```bash
+
 python backend.py
+
+ ```
+ ---
+
 
 The system will:  
 - Auto-select the correct network interface  
